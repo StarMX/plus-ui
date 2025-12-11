@@ -55,12 +55,6 @@
             <el-tab-pane label="修改密码" name="resetPwd">
               <resetPwd />
             </el-tab-pane>
-            <el-tab-pane label="第三方应用" name="thirdParty">
-              <thirdParty :auths="state.auths" />
-            </el-tab-pane>
-            <el-tab-pane label="在线设备" name="onlineDevice">
-              <onlineDevice :devices="state.devices" />
-            </el-tab-pane>
           </el-tabs>
         </el-card>
       </el-col>
@@ -72,11 +66,7 @@
 import UserAvatar from './userAvatar.vue';
 import UserInfo from './userInfo.vue';
 import ResetPwd from './resetPwd.vue';
-import ThirdParty from './thirdParty.vue';
-import OnlineDevice from './onlineDevice.vue';
-import { getAuthList } from '@/api/system/social/auth';
 import { getUserProfile } from '@/api/system/user';
-import { getOnline } from '@/api/monitor/online';
 import { UserVO } from '@/api/system/user/types';
 
 const activeTab = ref('userinfo');
@@ -105,18 +95,9 @@ const getUser = async () => {
   state.value.postGroup = res.data.postGroup;
 };
 
-const getAuths = async () => {
-  const res = await getAuthList();
-  state.value.auths = res.data;
-};
-const getOnlines = async () => {
-  const res = await getOnline();
-  state.value.devices = res.rows;
-};
+
 
 onMounted(() => {
   getUser();
-  getAuths();
-  getOnlines();
 });
 </script>
