@@ -56,7 +56,7 @@
     </el-form>
     <!--  底部  -->
     <div class="el-login-footer">
-      <span></span>
+      <span v-if="currentHostname.indexOf('dxhd.cc')>-1">鄂ICP备14006512号-2 鄂公网安备42018502002767号</span>
     </div>
   </div>
 </template>
@@ -72,13 +72,14 @@ import { useI18n } from 'vue-i18n';
 
 const { proxy } = getCurrentInstance() as ComponentInternalInstance;
 
+const currentHostname = window.location.hostname;
 const title = import.meta.env.VITE_APP_TITLE;
 const userStore = useUserStore();
 const router = useRouter();
 const { t } = useI18n();
 
 const loginForm = ref<LoginData>({
-  tenantId: '000000',
+  tenantId: '',
   username: '',
   password: '',
   rememberMe: false,
@@ -205,7 +206,7 @@ onMounted(() => {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-image: url('../assets/images/login-background.jpg');
+  background-image: url('../assets/images/login-background.webp');
   background-size: cover;
 }
 

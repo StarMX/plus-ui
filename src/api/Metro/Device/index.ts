@@ -11,6 +11,7 @@ import { DeviceVO, DeviceForm, DeviceQuery } from '@/api/Metro/Device/types';
 
 export const listDevice = (query?: DeviceQuery): AxiosPromise<DeviceVO[]> => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroDevice/list',
     method: 'get',
     params: query
@@ -23,6 +24,7 @@ export const listDevice = (query?: DeviceQuery): AxiosPromise<DeviceVO[]> => {
  */
 export const getDevice = (Id: string | number): AxiosPromise<DeviceVO> => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroDevice/' + Id,
     method: 'get'
   });
@@ -34,6 +36,7 @@ export const getDevice = (Id: string | number): AxiosPromise<DeviceVO> => {
  */
 export const addDevice = (data: DeviceForm) => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroDevice',
     method: 'post',
     data: data
@@ -46,6 +49,7 @@ export const addDevice = (data: DeviceForm) => {
  */
 export const updateDevice = (data: DeviceForm) => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroDevice',
     method: 'put',
     data: data
@@ -58,6 +62,7 @@ export const updateDevice = (data: DeviceForm) => {
  */
 export const delDevice = (Id: string | number | Array<string | number>) => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroDevice/' + Id,
     method: 'delete'
   });

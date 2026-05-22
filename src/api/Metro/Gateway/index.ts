@@ -11,7 +11,11 @@ import { GatewayVO, GatewayForm, GatewayQuery } from '@/api/Metro/Gateway/types'
 
 export const listGateway = (query?: GatewayQuery): AxiosPromise<GatewayVO[]> => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroGateway/list',
+    headers: {
+      isEncrypt: true
+    },
     method: 'get',
     params: query
   });
@@ -23,6 +27,7 @@ export const listGateway = (query?: GatewayQuery): AxiosPromise<GatewayVO[]> => 
  */
 export const getGateway = (Id: string | number): AxiosPromise<GatewayVO> => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroGateway/' + Id,
     method: 'get'
   });
@@ -34,6 +39,7 @@ export const getGateway = (Id: string | number): AxiosPromise<GatewayVO> => {
  */
 export const addGateway = (data: GatewayForm) => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroGateway',
     method: 'post',
     data: data
@@ -46,6 +52,7 @@ export const addGateway = (data: GatewayForm) => {
  */
 export const updateGateway = (data: GatewayForm) => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroGateway',
     method: 'put',
     data: data
@@ -58,6 +65,7 @@ export const updateGateway = (data: GatewayForm) => {
  */
 export const delGateway = (Id: string | number | Array<string | number>) => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroGateway/' + Id,
     method: 'delete'
   });

@@ -11,6 +11,7 @@ import { StationVO, StationForm, StationQuery } from '@/api/Metro/Station/types'
 
 export const listStation = (query?: StationQuery): AxiosPromise<StationVO[]> => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroStation/list',
     method: 'get',
     params: query
@@ -23,6 +24,7 @@ export const listStation = (query?: StationQuery): AxiosPromise<StationVO[]> => 
  */
 export const getStation = (Id: string | number): AxiosPromise<StationVO> => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroStation/' + Id,
     method: 'get'
   });
@@ -34,6 +36,7 @@ export const getStation = (Id: string | number): AxiosPromise<StationVO> => {
  */
 export const addStation = (data: StationForm) => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroStation',
     method: 'post',
     data: data
@@ -46,6 +49,7 @@ export const addStation = (data: StationForm) => {
  */
 export const updateStation = (data: StationForm) => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroStation',
     method: 'put',
     data: data
@@ -58,6 +62,7 @@ export const updateStation = (data: StationForm) => {
  */
 export const delStation = (Id: string | number | Array<string | number>) => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroStation/' + Id,
     method: 'delete'
   });

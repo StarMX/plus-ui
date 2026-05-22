@@ -19,7 +19,7 @@
       </template>
       <el-empty v-else :description="'消息为空'"></el-empty>
     </div>
-    <div v-if="newsList.length > 0" class="foot-box" @click="onGoToGiteeClick">前往gitee</div>
+    <div v-if="newsList.length > 0" class="foot-box" @click="onGoToGiteeClick">清空全部消息</div>
   </div>
 </template>
 
@@ -54,7 +54,9 @@ const onNewsClick = (item: any) => {
 
 // 前往通知中心点击
 const onGoToGiteeClick = () => {
-  window.open('https://gitee.com/dromara/RuoYi-Vue-Plus/tree/5.X/');
+  noticeStore.clearNotice();
+  getTableData();
+  //window.open('https://gitee.com/dromara/RuoYi-Vue-Plus/tree/5.X/');
 };
 
 onMounted(() => {

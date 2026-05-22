@@ -260,7 +260,11 @@ const handleClose = () => {
 /** 查询$Record列表 */
 const getList = async () => {
   loading.value = true;
-  if (route.query.deviceCode==='866193054464348') {
+  if (route.query.deviceCode==='866193054464348' || 
+      route.query.deviceCode==='866193054464983' || 
+      route.query.deviceCode==='862289051017800' || 
+      route.query.deviceCode==='866193054453549'   
+      ) {
     columns.value=[
         { key: 0, label: `主键`, visible: false},
         { key: 1, label: `节点`, visible: false},

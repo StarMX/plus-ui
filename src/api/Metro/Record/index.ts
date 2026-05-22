@@ -11,6 +11,7 @@ import { RecordVO, RecordForm, RecordQuery } from '@/api/Metro/Record/types';
 
 export const listRecord = (query?: RecordQuery): AxiosPromise<RecordVO[]> => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroDeviceRecord/list',
     method: 'get',
     params: query
@@ -23,6 +24,7 @@ export const listRecord = (query?: RecordQuery): AxiosPromise<RecordVO[]> => {
  */
 export const getRecord = (Id: string | number): AxiosPromise<RecordVO> => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroDeviceRecord/' + Id,
     method: 'get'
   });
@@ -34,6 +36,7 @@ export const getRecord = (Id: string | number): AxiosPromise<RecordVO> => {
  */
 export const addRecord = (data: RecordForm) => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroDeviceRecord',
     method: 'post',
     data: data
@@ -46,6 +49,7 @@ export const addRecord = (data: RecordForm) => {
  */
 export const updateRecord = (data: RecordForm) => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroDeviceRecord',
     method: 'put',
     data: data
@@ -58,6 +62,7 @@ export const updateRecord = (data: RecordForm) => {
  */
 export const delRecord = (Id: string | number | Array<string | number>) => {
   return request({
+    baseURL: "/api",
     url: '/Metro/MetroDeviceRecord/' + Id,
     method: 'delete'
   });

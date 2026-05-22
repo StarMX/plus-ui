@@ -11,9 +11,9 @@ export const initWebSocket = (url: any) => {
   useWebSocket(url, {
     autoReconnect: {
       // 重连最大次数
-      retries: 3,
+      //retries: 100,
       // 重连间隔
-      delay: 1000,
+      delay: 5000,
       onFailed() {
         console.log('websocket重连失败');
       }

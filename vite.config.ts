@@ -23,12 +23,27 @@ export default defineConfig(({ mode, command }) => {
       port: Number(env.VITE_APP_PORT),
       open: true,
       proxy: {
+        // [`/GB28181`]:{
+        //   target: "http://gowvp.golang.space:15123",
+        //   changeOrigin: true,
+        //   rewrite: (path) => path.replace(new RegExp('^/GB28181'), ''),
+        //   configure: (proxy) => {
+        //     proxy.on('proxyReq', (proxyReq, req, res) => {
+        //       proxyReq.setHeader('authorization', "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJEYXRhIjp7InVzZXJuYW1lIjoiYWRtaW4ifSwiaXNzIjoieHhAZ29sYW5nLnNwYWNlIiwiZXhwIjoxNzY2MTUwMTQ0LCJpYXQiOjE3NjU4OTA5NDR9.dRK1WUqsRw_llca_iqhI2dlmPqWVkrh4T4bYLN-uSww")
+        //     })
+        //   },
+        // },
+        [`/api`]:{
+          target: "http://10.244.10.20:5000",
+          changeOrigin: true,
+          rewrite: (path) => path.replace(new RegExp('^/api'), '')
+        },
         [env.VITE_APP_BASE_API]: {
-          target: 'http://localhost:8080',
+          target:  'http://10.244.10.20:5016',  //'http://10.88.82.252:5015', //'http://10.88.66.88:5016',  //
           changeOrigin: true,
           ws: true,
           rewrite: (path) => path.replace(new RegExp('^' + env.VITE_APP_BASE_API), '')
-        }
+        },
       }
     },
     css: {
